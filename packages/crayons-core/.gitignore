@@ -1,4 +1,6 @@
 dist/
+dist1/
+dist2/
 storybook-dist/
 www/
 loader/
@@ -8,6 +10,9 @@ react/
 src/custom-elements.json
 crayons-react/src/react-component-lib
 crayons-react/src/components.ts
+crayons-react/src/react-component-lib1
+crayons-react/src/components1.ts
+
 .vuepress/public/build/
 
 *~
