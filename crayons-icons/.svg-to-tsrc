@@ -1,0 +1,23 @@
+{
+  "conversionType": "files",
+  "srcFiles": [
+    "icons/**/*.svg"
+  ],
+  "outputDirectory": "dist",
+  "interfaceName": "CrayonsIcon",
+  "typeName": "",
+  "prefix": "crayonsIcon",
+  "fileName": "icons",
+  "svgoConfig": {
+    "plugins": [
+      "cleanupAttrs",
+      "removeComments",
+      "removeXMLProcInst",
+      "removeXMLNS",
+      "removeDimensions"
+    ]
+  },
+  "compileSources": true,
+  "optimizeForLazyLoading": true,
+  "exportCompleteIconSet": true
+}

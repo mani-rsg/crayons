@@ -1,7 +1,7 @@
 import { Component, Prop, State, Watch, h } from '@stencil/core';
 
 // Icons Object
-import icons from './icon-assets/icons.json';
+//import icons from './icon-assets/icons.json';
 
 @Component({
   tag: 'fw-icon',
@@ -25,11 +25,36 @@ export class Icon {
    */
   @Prop() color = '';
 
+  @Prop() path = '';
+
   @State() svgHTML = '';
 
   @Watch('name')
-  private setSVGState(iconName: string) {
-    this.svgHTML = icons[iconName];
+  private async setSVGState(iconName: string) {
+    const prefix = `crayonsIcon`;
+    const name =
+      prefix +
+      iconName
+        .split('-')
+        .map((n) => n[0].toUpperCase() + n.substring(1))
+        .join('');
+
+    if (!this.path) {
+      const iconModule = await import(
+        `crayons-icons/dist/build/complete-icon-set`
+      );
+      console.log(name);
+      console.log(iconModule[name]);
+      const svgText = iconModule[name]?.data;
+
+      this.svgHTML = svgText;
+    } else {
+      console.log('AA ', name);
+      const iconModule = await fetch(this.path).then((res) => res.text());
+      const svgText = iconModule;
+      console.log('text ', svgText);
+      this.svgHTML = svgText;
+    }
   }
 
   componentWillLoad() {

@@ -139,6 +139,7 @@ export namespace Components {
           * Identifier of the icon. The attribute’s value must be a valid svg file in the repo of icons (assets/icons).
          */
         "name": string;
+        "path": string;
         /**
           * Size of the icon, specified in number of  pixels.
          */
@@ -899,6 +900,7 @@ declare namespace LocalJSX {
           * Identifier of the icon. The attribute’s value must be a valid svg file in the repo of icons (assets/icons).
          */
         "name"?: string;
+        "path"?: string;
         /**
           * Size of the icon, specified in number of  pixels.
          */
