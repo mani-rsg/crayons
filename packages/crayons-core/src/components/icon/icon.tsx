@@ -39,13 +39,26 @@ export class Icon {
         .map((n) => n[0].toUpperCase() + n.substring(1))
         .join('');
 
+    // if (!this.path) {
+    //   const iconModule = await import(
+    //     `crayons-icons/dist/build/complete-icon-set`
+    //   );
+    //   console.log(name);
+    //   console.log(iconModule[name]);
+    //   const svgText = iconModule[name]?.data;
+
+    //   this.svgHTML = svgText;
+    // }
+
     if (!this.path) {
-      const iconModule = await import(
-        `crayons-icons/dist/build/complete-icon-set`
+      const iconModule = await fetch(`../icons/${iconName}.svg`).then((res) =>
+        res.text()
       );
-      console.log(name);
-      console.log(iconModule[name]);
-      const svgText = iconModule[name]?.data;
+
+      //import(`crayons-icons/dist/build/complete-icon-set`);
+      //console.log(name);
+      //console.log(iconModule[name]);
+      const svgText = iconModule;
 
       this.svgHTML = svgText;
     } else {
